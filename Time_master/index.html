@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeMaster</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">TimeMaster</div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="nav-link active" data-target="digital">Digital</a></li>
+      <li><a href="#" class="nav-link" data-target="analog">Analog</a></li>
+      <li><a href="#" class="nav-link" data-target="stopwatch">Stopwatch</a></li>
+      <li><a href="#" class="nav-link" data-target="timer">Timer</a></li>
+    </ul>
+    <button id="toggleMode" class="toggle-mode">Toggle Mode</button>
+  </nav>
+
+  <section id="digital" class="content-section active">
+    <div class="container">
+      <h2>Digital Clock</h2>
+      <select id="formatToggle" class="styled-select">
+        <option value="24">24-Hour</option>
+        <option value="12">12-Hour</option>
+      </select>
+      <select id="timezoneSelect" class="styled-select">
+        <option value="auto">Local Time</option>
+        <option value="America/New_York">New York</option>
+        <option value="Europe/London">London</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+      </select>
+      <div class="digital-clock" id="digitalClock"></div>
+    </div>
+  </section>
+
+  <section id="analog" class="content-section">
+    <div class="container">
+      <h2>Analog Clock</h2>
+      <select id="analogStyle" class="styled-select">
+        <option value="minimal">Minimal</option>
+        <option value="neon">Neon</option>
+        <option value="vintage">Vintage</option>
+      </select>
+      <select id="analogTimezone" class="styled-select">
+        <option value="auto">Local Time</option>
+        <option value="America/New_York">New York</option>
+        <option value="Europe/London">London</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+      </select>
+      <canvas id="analogClock" width="300" height="300"></canvas>
+    </div>
+  </section>
+
+  <section id="stopwatch" class="content-section">
+    <div class="container">
+      <h2>Stopwatch</h2>
+      <div class="display" id="stopwatchDisplay">00:00:00</div>
+      <div class="btn-group">
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <button onclick="resetStopwatch()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="timer" class="content-section">
+    <div class="container">
+      <h2>Timer</h2>
+      <input type="number" id="timerMinutes" placeholder="Enter minutes" class="styled-input" min="1" value="5"/>
+      <div class="display" id="timerDisplay">05:00</div>
+      <div class="btn-group">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+/* ===== Reset and Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    transition: background 0.5s ease, color 0.3s ease;
+    min-height: 100vh;
+  }
+  
+  body.light {
+    background: linear-gradient(to bottom right, #f7f7f7, #e2e2e2);
+    color: #222;
+  }
+  
+  /* ===== Navbar ===== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    flex-wrap: wrap;
+  }
+  
+  .navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #00e0ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar .nav-links a {
+    color: #eee;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: 0.3s ease;
+  }
+  
+  .navbar .nav-links a.active {
+    background: rgba(0, 224, 255, 0.3);
+    color: #00e0ff;
+  }
+  
+  .navbar .nav-links a:hover {
+    background: rgba(0, 224, 255, 0.2);
+    color: #00e0ff;
+  }
+  
+  .toggle-mode {
+    padding: 0.5rem 1rem;
+    background: #00e0ff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+  
+  .toggle-mode:hover {
+    background: #00bcd4;
+  }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #00e0ff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  /* ===== Sections & Containers ===== */
+  .content-section {
+    display: none;
+    padding: 3rem 1rem;
+    min-height: calc(100vh - 70px);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-section.active {
+    display: flex;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #00e0ff;
+  }
+  
+  /* ===== Displays ===== */
+  .display, .digital-clock {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    letter-spacing: 2px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  /* ===== Buttons ===== */
+  .btn-group button,
+  button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #00e0ff, #007ea7);
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0, 224, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-group button:hover,
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 224, 255, 0.6);
+  }
+  
+  /* ===== Inputs & Selects ===== */
+  .styled-input,
+  .styled-select {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    margin: 1rem auto;
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    background: #eee;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Dark Mode Select */
+  body.light .styled-input,
+  body.light .styled-select {
+    background: #ddd;
+    color: #111;
+  }
+  
+  /* ===== Analog Clock Styling ===== */
+  canvas#analogClock {
+    background-color: transparent;
+    border-radius: 50%;
+    margin-top: 1rem;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar {
+      padding: 1rem;
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+    
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding-top: 1rem;
+      gap: 0.5rem;
+    }
+    
+    .nav-links.active {
+      display: flex;
+    }
+    
+    .nav-links a {
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .toggle-mode {
+      width: 100%;
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .toggle-mode.active {
+      display: block;
+    }
+    
+    .container {
+      padding: 1.5rem;
+    }
+    
+    .display, .digital-clock {
+      font-size: 2rem;
+    }
+  }
